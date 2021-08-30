@@ -1,11 +1,14 @@
+//引入axios
 import axios from 'axios'
+// 引入vuex
 import store from '@/store'
+// 引入vant的加载动画
 import { Toast } from 'vant'
 // 根据环境不同引入不同api地址
 import { baseUrl } from '@/config'
-// create an axios instance
+// 创建一个axios
 const service = axios.create({
-  baseURL: baseUrl, // url = base api url + request url
+  baseURL: baseUrl, // 配置axios基地址
   //withCredentials: true, // send cookies when cross-domain requests
   timeout: 5000 // request timeout
 })
@@ -20,8 +23,8 @@ service.interceptors.request.use(
         forbidClick: true
       })
     }
-    if (store.getters.token) {
-      config.headers['X-Token'] = ''
+    if (store.state.token) {
+      config.headers['remember_token'] = store.state.token
     }
     return config
   },
@@ -34,6 +37,7 @@ service.interceptors.request.use(
 // respone拦截器
 service.interceptors.response.use(
   response => {
+	  //清除loading
     Toast.clear()
     const res = response.data
     if (res.status && res.status !== 200) {

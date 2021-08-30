@@ -1,9 +1,17 @@
+//将封装的axios引入到接口管理页
 import service from './request.js'
-
 //获取短信验证码
 export function smsCode(arg) {
 	return service({
 		url: "/smsCode",
+		data: arg,
+		method: "post"
+	})
+}
+//登录接口
+export function login(arg) {
+	return service({
+		url: "/login",
 		data: arg,
 		method: "post"
 	})
@@ -52,6 +60,14 @@ export function headernav(arg){
 export function new_data(arg){
 	return service({
 		url:"/information/index",
+		data:arg,
+		method:"post"
+	})
+}
+// 设置密码接口
+export function edit(arg){
+	return service({
+		url:"/password",
 		data:arg,
 		method:"post"
 	})

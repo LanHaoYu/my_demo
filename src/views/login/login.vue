@@ -21,7 +21,7 @@
 		</button>
 		<div class="login_text">
 			<span>*未注册的手机号将自动注册</span>
-			<span>密码登录</span>
+			<span @click="$router.push('/pwd_login')">密码登录</span>
 		</div>
 		<div class="login_span">——————— 第三方登录 ———————</div>
 		<div class="login_img">
@@ -40,7 +40,7 @@
 </template>
 <script>
 	import {
-		smsCode
+		smsCode,login
 	} from '@/utile/api.js'
 	export default {
 		data() {
@@ -64,7 +64,6 @@
 					this.isshow=false
 					var a=await smsCode({mobile:this.form.tel,sms_type:'login'})
 					this.statu=a.code
-					console.log(this.statu)
 					this.timer=setInterval(()=>{
 						this.count--
 						if(this.count==0){
@@ -82,16 +81,19 @@
 					this.$toast.fail('手机号不能为空')
 				}
 			},
-			login(){
+		    async login(){
 				if(this.form.code=="" && this.form.tel==""){
 					this.$toast.fail('手机号或者验证码不能为空')
 					return false
 				}
-				if(this.statu==200){
-					this.$router.push('/index')
-				}else{
-					this.$toast.fail("请发送验证码")
-				}
+				var a=await login({
+					mobile:this.form.tel,
+					type:2,
+					client:"1",
+					sms_code:this.form.code
+				})
+				this.$store.commit("setToken",a.data.remember_token)
+				console.log(a.data.remember_token)
 			},
 			onClickLeft() {
 				this.$router.go(-1)

@@ -5,8 +5,14 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+	  token:"",
+	  nickname:''
   },
   mutations: {
+	  setToken(state,arg){
+		  state.token=arg.token
+		  state.nickname=arg.name
+	  }
   },
   actions: {
   },

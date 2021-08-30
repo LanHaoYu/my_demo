@@ -1,10 +1,19 @@
 <template>
 	<div>
-		<div>
+		<div v-if="isshow">
 			<img src="http://120.53.31.103:86/img/user_bg.7d633ee2.png" class="banner">
-			<div class="user">
+			<div class="user" >
 				<img src="http://120.53.31.103:86/img/avatar.71c6d2b4.png" class="user_header">
-				<p class="user_w">登录/注册</p>
+				<p class="user_w" @click="login">登录/注册</p>
+			</div>
+		</div>
+		<div v-else>
+			<img src="http://120.53.31.103:86/img/user_bg.7d633ee2.png" class="banner">
+			<div class="login_user">
+				<img src="http://120.53.31.103:84/uploads/avatar.jpg" class="login_user_header">
+				<span style="top:10px;position: absolute;left: 100px;color: white;font-size: 18px;">
+					{{$store.state.nickname}}
+				</span>
 			</div>
 		</div>
 		<div class="mid">
@@ -33,20 +42,33 @@
 			<van-cell title="地址管理" is-link />
 			<van-cell title="关于我们" is-link />
 			<van-cell title="意见返回" is-link />
-			<van-cell title="设置" is-link />
+			<van-cell title="设置" is-link class="bottom" @click="$router.push('/setPwd')" />
 		</div>
 	</div>
 </template>
 <script>
 	export default {
 		data() {
-			return{}
+			return{
+				isshow:true
+			}
 		},
-		methods:{},
-		created(){}
+		methods:{
+			login(){
+				this.$router.push('/login')
+			}
+		},
+		created(){
+			if(this.$store.state.token!=""){
+				this.isshow=false
+			}
+		}
 	}
 </script>
 <style scoped>
+	.bottom{
+		margin-bottom: 60px;
+	}
 	.fen{
 		margin-bottom: 20px;
 	}
@@ -68,6 +90,12 @@
 		display: flex;
 		justify-content: space-evenly;
 		margin-bottom: 10px;
+	}
+	.login_user_header{
+		width: 60px;
+		height: 60px;
+		border-radius: 60px;
+		border: solid 1px #999;
 	}
 	.user_header{
 		width: 60px;
@@ -92,5 +120,11 @@
 		margin-left:-37.5px ;
 		height: 110px;
 		margin-top: 50px;
+	}
+	.login_user{
+		position: absolute;
+		top: 0;
+		margin-top: 50px;
+		left: 20px;
 	}
 </style>

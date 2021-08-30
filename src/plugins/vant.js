@@ -1,5 +1,21 @@
 import Vue from 'vue'
-import { Button,Cell, CellGroup,NavBar,Toast,Swipe, SwipeItem,Card,Tabbar, TabbarItem,Tab, Tabs ,Notify   } from 'vant'
+import {
+	Button,
+	Cell,
+	CellGroup,
+	NavBar,
+	Toast,
+	Swipe,
+	SwipeItem,
+	Card,
+	Tabbar,
+	TabbarItem,
+	Tab,
+	Tabs,
+	Notify,
+	Form,
+	Field
+} from 'vant'
 Vue.use(Button);
 Vue.use(Cell);
 Vue.use(CellGroup);
@@ -13,3 +29,5 @@ Vue.use(TabbarItem);
 Vue.use(Tab);
 Vue.use(Tabs);
 Vue.use(Notify);
+Vue.use(Form);
+Vue.use(Field);
