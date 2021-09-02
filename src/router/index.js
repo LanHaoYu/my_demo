@@ -10,6 +10,9 @@ import BookList from '../views/home/BookList.vue'
 import Person from '../views/home/Person.vue'
 import Setpwd from '../views/home/setPwd.vue'
 import SetNewPass from '../views/home/set-new-pass.vue'
+import Date from '../views/home/date.vue'
+import Class_detail from '../views/home/class_detail.vue'
+import Curserinfo from '../views/home/courseinfo.vue'
 
 Vue.use(VueRouter)
 
@@ -17,6 +20,34 @@ const routes = [
   {
     path: '/login',
     component: Login
+  },
+  {
+    path: '/purchase',
+    component: ()=>import("../views/home/purchase.vue")
+  },
+  {
+    path: '/news-detail',
+    component: ()=>import("../views/home/news-detail.vue")
+  },
+  {
+    path: '/address-edit',
+    component: ()=>import("../views/home/address-edit.vue")
+  },
+  {
+    path: '/address',
+    component: ()=>import("../views/home/address.vue")
+  },
+  {
+    path: '/courseinfo',
+    component: Curserinfo
+  },
+  {
+    path: '/class_detail',
+    component: Class_detail
+  },
+  {
+    path: '/date',
+    component: Date
   },
   {
     path: '/set-new-pass',

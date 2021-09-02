@@ -10,7 +10,7 @@ import { baseUrl } from '@/config'
 const service = axios.create({
   baseURL: baseUrl, // 配置axios基地址
   //withCredentials: true, // send cookies when cross-domain requests
-  timeout: 5000 // request timeout
+  timeout: 50000 // request timeout
 })
 
 // request 拦截器 request interceptor
@@ -24,7 +24,7 @@ service.interceptors.request.use(
       })
     }
     if (store.state.token) {
-      config.headers['remember_token'] = store.state.token
+      config.headers['Authorization'] =" Bearer "+store.state.token
     }
     return config
   },

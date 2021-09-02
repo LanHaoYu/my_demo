@@ -7,6 +7,7 @@ import {
 	Toast,
 	Swipe,
 	SwipeItem,
+	Popup,
 	Card,
 	Tabbar,
 	TabbarItem,
@@ -14,8 +15,31 @@ import {
 	Tabs,
 	Notify,
 	Form,
-	Field
+	Field,
+	DropdownMenu,
+	DropdownItem,
+	Empty,
+	Calendar,
+	CouponCell,
+	CouponList,
+	ContactCard,
+	AddressEdit,
+	SwitchCell,
+	List,
+	PullRefresh ,
 } from 'vant'
+Vue.use(List);
+Vue.use(PullRefresh);
+Vue.use(ContactCard);
+Vue.use(SwitchCell);
+Vue.use(AddressEdit);
+Vue.use(Popup);
+Vue.use(CouponCell);
+Vue.use(CouponList);
+Vue.use(Empty);
+Vue.use(DropdownMenu);
+Vue.use(DropdownItem);
+Vue.use(Calendar);
 Vue.use(Button);
 Vue.use(Cell);
 Vue.use(CellGroup);

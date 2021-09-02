@@ -22,9 +22,7 @@
 	</div>
 </template>
 <script>
-	import {
-		smsCode,login
-	} from '@/utile/api.js'
+	import { smsCode,login } from '@/utile/api.js'
 	export default {
 		data() {
 			return {

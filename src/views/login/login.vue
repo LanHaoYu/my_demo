@@ -92,8 +92,13 @@
 					client:"1",
 					sms_code:this.form.code
 				})
-				this.$store.commit("setToken",a.data.remember_token)
 				console.log(a.data.remember_token)
+				if(a.code==200){
+					this.$router.push('/Person')
+					this.$store.commit("setToken",{name:a.data.nickname,token:a.data.remember_token})
+					console.log(this.$store.state.token)
+					
+				}
 			},
 			onClickLeft() {
 				this.$router.go(-1)

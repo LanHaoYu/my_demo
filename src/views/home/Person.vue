@@ -14,7 +14,9 @@
 				<span style="top:10px;position: absolute;left: 100px;color: white;font-size: 18px;">
 					{{$store.state.nickname}}
 				</span>
+				
 			</div>
+			<div style="position: absolute; right: 0px;top: 50px;background-color: #39A9ED;color: white;border-radius: 10px;width: 70px;height: 30px;text-align: center;line-height: 30px;font-size: 16px;" @click="$router.push('/date')"><span>签到</span></div>
 		</div>
 		<div class="mid">
 			<div class="mid_son">

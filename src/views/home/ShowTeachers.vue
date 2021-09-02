@@ -1,7 +1,9 @@
 <template>
 	<div>
 		<van-card v-for="(item,index) in class_list" :key='index' :desc="item.introduction"
-			:thumb="item.avatar" >
+			:thumb="item.avatar"
+			 @click="go(item.id)"
+			 >
 			<template #title>
 				<span class="title">{{item.real_name}}</span>
 			</template>
@@ -22,7 +24,15 @@
 			async get() {
 				var a = await Class()
 				this.class_list = a.data.list
-				console.log(a.data.list)
+				// console.log(a.data.list)
+			},
+			go(id){
+				this.$router.push({
+					path:"/class_detail",
+					query:{
+						id:id
+					}
+				})
 			}
 		},
 		created() {

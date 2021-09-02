@@ -27,7 +27,6 @@
 			async get(){
 				var a=await tabbar()
 				this.tabbarlist=a.data.index
-				console.log(a.data.index)
 			}
 		},
 		created() {
